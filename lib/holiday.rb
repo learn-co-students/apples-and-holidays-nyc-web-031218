@@ -63,13 +63,11 @@ def all_supplies_in_holidays(holiday_hash)
     puts "#{season.capitalize}:"
     holidays.each do |holiday, supply|
       if holiday.id2name.include?("_")
-        earr = []
         arr = holiday.id2name.split("_")
         arr.each do |word|
-          word2 = word.capitalize
-          earr << word2
+          word.capitalize!
         end
-        puts "  #{earr.join(" ")}: #{supply.join(", ")}"
+        puts "  #{arr.join(" ")}: #{supply.join(", ")}"
       else
         puts "  #{holiday.capitalize}: #{supply.join(", ")}"
       end
